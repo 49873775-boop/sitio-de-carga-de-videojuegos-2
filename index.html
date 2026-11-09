@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameStock - Carga de videojuegos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="encabezado">
+    <h1>🎮 GameStock</h1>
+    <p>Cargá y administrá tus videojuegos</p>
+  </header>
+
+  <main class="contenedor">
+    <!-- FORMULARIO DE CARGA -->
+    <section class="tarjeta">
+      <h2>Cargar videojuego</h2>
+      <form id="formulario-videojuego">
+        <label>Título
+          <input type="text" id="input-titulo" required placeholder="Ej: The Legend of Zelda" />
+        </label>
+
+        <div class="fila">
+          <label>Plataforma
+            <select id="input-plataforma" required>
+              <option value="">Elegir...</option>
+              <option>PlayStation 5</option>
+              <option>PlayStation 4</option>
+              <option>Xbox Series X/S</option>
+              <option>Xbox One</option>
+              <option>Nintendo Switch</option>
+              <option>PC</option>
+            </select>
+          </label>
+
+          <label>Género
+            <select id="input-genero" required>
+              <option value="">Elegir...</option>
+              <option>Acción</option>
+              <option>Aventura</option>
+              <option>RPG</option>
+              <option>Deportes</option>
+              <option>Carreras</option>
+              <option>Shooter</option>
+              <option>Estrategia</option>
+              <option>Terror</option>
+              <option>Otro</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="fila">
+          <label>Precio (ARS)
+            <input type="number" id="input-precio" min="0" step="0.01" required placeholder="0.00" />
+          </label>
+          <label>Stock
+            <input type="number" id="input-stock" min="0" step="1" required placeholder="0" />
+          </label>
+        </div>
+
+        <label>Descripción
+          <textarea id="input-descripcion" rows="3" placeholder="Breve descripción del juego..."></textarea>
+        </label>
+
+        <label>URL de la imagen (opcional)
+          <input type="url" id="input-imagen" placeholder="https://..." />
+        </label>
+
+        <button type="submit" id="boton-guardar">Guardar videojuego</button>
+        <p id="mensaje" class="mensaje"></p>
+      </form>
+    </section>
+
+    <!-- LISTADO + BÚSQUEDA -->
+    <section>
+      <div class="encabezado-lista">
+        <h2>Catálogo</h2>
+        <div class="busqueda">
+          <input type="search" id="input-busqueda" placeholder="Buscar por título..." />
+          <button type="button" id="boton-limpiar" class="boton-secundario">Limpiar</button>
+        </div>
+      </div>
+
+      <div id="lista-videojuegos" class="grilla"></div>
+      <p id="mensaje-vacio" class="vacio oculto">No hay videojuegos para mostrar.</p>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
